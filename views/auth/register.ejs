@@ -1,0 +1,19 @@
+<%- include("../partials/header.ejs") %>
+<h1>Register</h1>
+<form method="POST" action="/auth/register">
+    <%- include('../partials/error.ejs', { errors: errors, attribute: 'email'}) %>
+    <div>
+        <input type="email" name="email" placeholder="email" value="<%= email %>" />
+    </div>
+    <%- include('../partials/error.ejs', { errors: errors, attribute: 'password'}) %>
+    <div>
+        <input type="password" name="password" placeholder="password" />
+    </div>
+    <div>
+        <input type="password" name="again" placeholder="repeat password" />
+    </div>
+    <div>
+        <input type="submit" value="Submit!" />
+    </div>
+</form>
+<%- include("../partials/footer.ejs") %>

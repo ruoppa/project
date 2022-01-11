@@ -1,0 +1,48 @@
+<%- include("../partials/header.ejs") %>
+<h1>Summary of your data</h1>
+<h2>Weekly averages: </h2>
+<div>
+    <% if (Object.keys(weekly).length !== 0) { %>
+    <ul>
+        <li>Average sleep duration: <%= weekly.sleepdur %></li>
+        <li>Average sleep quality: <%= weekly.sleepqual %></li>
+        <li>Average time spent exercising: <%= weekly.sports %></li>
+        <li>Average time spent studying: <%= weekly.studying %></li>
+        <li>Average eating regularity/quality: <%= weekly.eating %></li>
+        <li>Average generic mood: <%= weekly.mood %></li>
+    </ul>
+    <% } else { %>
+    <p>No data for the given week</p>
+    <% } %>
+</div>
+<h2>Monthly averages: </h2>
+<div>
+    <% if (Object.keys(monthly).length !== 0) { %>
+    <ul>
+        <li>Average sleep duration: <%= monthly.sleepdur %></li>
+        <li>Average sleep quality: <%= monthly.sleepqual %></li>
+        <li>Average time spent exercising: <%= monthly.sports %></li>
+        <li>Average time spent studying: <%= monthly.studying %></li>
+        <li>Average eating regularity/quality: <%= monthly.eating %></li>
+        <li>Average generic mood: <%= monthly.mood %></li>
+    </ul>
+    <% } else { %>
+    <p>No data for the given month</p>
+    <% } %>
+</div>
+<form method="POST" action="/behavior/summary">
+    <div>
+        <%- include('../partials/error.ejs', { errors: errors, attribute: 'weeknum'}) %>
+        <%- include('../partials/error.ejs', { errors: errors, attribute: 'weekyear'}) %>
+        <label>Week: <input type="week" name="week" value="<%= week %>"/></label>
+    </div>
+    <div>
+        <%- include('../partials/error.ejs', { errors: errors, attribute: 'monthnum'}) %>
+        <%- include('../partials/error.ejs', { errors: errors, attribute: 'monthyear'}) %>
+        <label>Month: <input type="month" name="month" value="<%= month %>"/></label>
+    </div>
+    <div>
+        <input type="submit" value="Show averages"/>
+    </div>
+</form>
+<%- include("../partials/footer.ejs") %>

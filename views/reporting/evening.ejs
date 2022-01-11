@@ -1,0 +1,54 @@
+<%- include("../partials/header.ejs") %>
+<h1>Evening reporting</h1>
+<form method="POST" action="/behavior/reporting/evening">
+    <%- include('../partials/error.ejs', { errors: errors, attribute: 'date'}) %>
+    <div>
+        <label>Date: <input type="date" name="date" value="<%= date %>" /></label>
+    </div>
+    <%- include('../partials/error.ejs', { errors: errors, attribute: 'sports'}) %>
+    <div>
+        <label>Time spent on exercise: <input type="number" name="sports" step="0.1" value="<%= sports %>"/></label>
+    </div>
+    <%- include('../partials/error.ejs', { errors: errors, attribute: 'studying'}) %>
+    <div>
+        <label>Time spent on studying: <input type="number" name="studying" step="0.1" value="<%= studying %>"/></label>
+    </div>
+    <%- include('../partials/error.ejs', { errors: errors, attribute: 'eating'}) %>
+    <p><strong>Regularity and quality of eating: </strong></p>
+    <div>
+        <label><input type="radio" name="eating" value="1" <% if (eating == 1) { %> checked <% } %> /> Very poor</label>
+    </div>
+    <div>
+        <label><input type="radio" name="eating" value="2" <% if (eating == 2) { %> checked <% } %> /> Poor</label>
+    </div>
+    <div>
+        <label><input type="radio" name="eating" value="3" <% if (eating == 3) { %> checked <% } %> /> Average</label>
+    </div>
+    <div>
+        <label><input type="radio" name="eating" value="4" <% if (eating == 4) { %> checked <% } %> /> Good</label>
+    </div>
+    <div>
+        <label><input type="radio" name="eating" value="5" <% if (eating == 5) { %> checked <% } %> /> Excellent</label>
+    </div>
+    <%- include('../partials/error.ejs', { errors: errors, attribute: 'mood_e'}) %>
+    <p><strong>Generic mood: </strong></p>
+    <div>
+    <label><input type="radio" name="mood_e" value="1" <% if (mood_e == 1) { %> checked <% } %> /> Very poor</label>
+    </div>
+    <div>
+        <label><input type="radio" name="mood_e" value="2" <% if (mood_e == 2) { %> checked <% } %> /> Poor</label>
+    </div>
+    <div>
+        <label><input type="radio" name="mood_e" value="3" <% if (mood_e == 3) { %> checked <% } %> /> Average</label>
+    </div>
+    <div>
+        <label><input type="radio" name="mood_e" value="4" <% if (mood_e == 4) { %> checked <% } %> /> Good</label>
+    </div>
+    <div>
+        <label><input type="radio" name="mood_e" value="5" <% if (mood_e == 5) { %> checked <% } %> /> Excellent</label>
+    </div>
+    <div>
+        <input type="submit" value="Submit!">
+    </div>
+</form>
+<%- include("../partials/footer.ejs") %>

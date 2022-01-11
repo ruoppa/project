@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Behavior logger</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <% if (Object.keys(user).length !== 0) { %>
+                <table>
+                    <td><a href="/">Home</a></td>
+                    <td><a href="/behavior/reporting">Reporting</a></td>
+                    <td><a href="/behavior/summary">Summary</a></td>
+                    <td>Logged in as <%= user.email %></td>
+                    <td><a href="/auth/logout"> Log out</a></td>
+                </table>
+                <% } else { %>
+                <table>
+                    <td><a href="/">Home</a></td>
+                    <td><a href="/auth/login">Log in</a></td>
+                    <td><a href="/auth/register">Register</a></td>
+                </table>
+                <% } %>
+            </nav>

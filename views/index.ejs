@@ -1,0 +1,19 @@
+<%- include("./partials/header.ejs") %>
+<h1>Behavior logger</h1>
+<p>The purpose of the application is to log the users behavior day by day. You can report your behavior on the reporting page and view summaries on the summary page.</p>
+<div>
+    <p><strong>Average mood today: </strong><% if (today) { %><%= today %><% } else { %>No data for today<% } %></p>
+</div>
+<div>
+    <p><strong>Average mood yesterday: </strong><% if (yesterday) { %><%= yesterday %><% } else { %>No data for yesterday<% } %></p>
+</div>
+<div>
+    <%  if (today && yesterday) { 
+            if (today.mood >= yesterday.mood) { %>
+                <p>Things are looking bright today!</p>
+        <%  } else { %>
+                <p>Things are looking gloomy today...</p>
+        <%  }
+        } %>
+</div>
+<% include("./partials/footer.ejs") %>
